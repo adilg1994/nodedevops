@@ -4,3 +4,4 @@ const app = express();
 app.get('/', (req, res) => res.send('Hello from CI/CD project'));
 
 app.listen(2950, () => console.log('Server running on port 3000'));
+const unusedVar = "this will trigger a lint error";
