@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint .",
     "test": "node -e \"console.log('tests passed (stub)'); process.exit(0)\"",
     "build": "node -e \"console.log('build ok (stub)'); process.exit(0)\"",
     "start": "node index.js"
@@ -13,5 +14,9 @@
   "description": "",
   "dependencies": {
     "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.10.0"
   }
 }
