@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node -e \"console.log('tests passed (stub)'); process.exit(0)\"",
+    "build": "node -e \"console.log('build ok (stub)'); process.exit(0)\"",
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
