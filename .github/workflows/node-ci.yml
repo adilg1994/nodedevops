@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -43,3 +47,12 @@ jobs:
       - run: npm test
 
       - run: npm run build
+
+      - name: Configure AWS credentials via OIDC
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::026056481305:role/github-actions-node-deploy
+          aws-region: ap-south-1
+
+      - name: Verify OIDC authentication
+        run: aws sts get-caller-identity
