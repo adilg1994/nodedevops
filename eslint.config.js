@@ -1,4 +1,3 @@
-// eslint.config.js
 const js = require("@eslint/js");
 
 module.exports = [
@@ -13,6 +12,21 @@ module.exports = [
         process: "readonly",
         console: "readonly",
         __dirname: "readonly",
+      },
+    },
+  },
+  {
+    files: ["tests/**/*.js"],
+    languageOptions: {
+      globals: {
+        describe: "readonly",
+        it: "readonly",
+        test: "readonly",
+        expect: "readonly",
+        beforeAll: "readonly",
+        beforeEach: "readonly",
+        afterAll: "readonly",
+        afterEach: "readonly",
       },
     },
   },
