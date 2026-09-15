@@ -4,19 +4,28 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
-    "test": "node -e \"console.log('tests passed (stub)'); process.exit(0)\"",
+     "test": "jest --runInBand",
     "build": "node -e \"console.log('build ok (stub)'); process.exit(0)\"",
     "start": "node index.js"
+  },
+    "jest": {
+    "testTimeout": 15000
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "express": "^5.2.1"
+    "dotenv": "^17.4.2",
+    "drizzle-orm": "^0.45.2",
+    "express": "^5.2.1",
+    "pg": "^8.23.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "eslint": "^10.10.0"
+    "drizzle-kit": "^0.31.10",
+    "eslint": "^10.10.0",
+    "jest": "^30.5.1",
+    "supertest": "^7.2.2"
   }
 }
