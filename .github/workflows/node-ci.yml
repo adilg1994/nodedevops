@@ -48,6 +48,22 @@ jobs:
 
       - run: npm run build
 
+      - name: Debug - print real OIDC token claims
+        run: |
+          node -e "
+          const https = require('https');
+          const url = new URL(process.env.ACTIONS_ID_TOKEN_REQUEST_URL + '&audience=sts.amazonaws.com');
+          https.get(url, { headers: { Authorization: 'bearer ' + process.env.ACTIONS_ID_TOKEN_REQUEST_TOKEN } }, res => {
+            let data = '';
+            res.on('data', c => data += c);
+            res.on('end', () => {
+              const token = JSON.parse(data).value;
+              const payload = JSON.parse(Buffer.from(token.split('.')[1], 'base64url').toString());
+              console.log(JSON.stringify(payload, null, 2));
+            });
+          });
+          "
+
       - name: Configure AWS credentials via OIDC
         uses: aws-actions/configure-aws-credentials@v4
         with:
