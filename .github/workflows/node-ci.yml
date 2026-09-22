@@ -36,6 +36,7 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 24
+          cache: 'npm'
 
       - run: npm ci
 
@@ -88,6 +89,6 @@ jobs:
         uses: aws-actions/amazon-ecs-deploy-task-definition@v2
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
-          service: nodedevops-api-service
+          service: nodedevops-api-task-service-aps3yvrg
           cluster: nodedevops-cluster
           wait-for-service-stability: true
